@@ -12,6 +12,8 @@ function computerPlay() {
     
 }
 
+let playerSelection;
+let computerSelection;
 
 function playRound(playerSelection, computerSelection) {
     
@@ -34,45 +36,56 @@ function playRound(playerSelection, computerSelection) {
     }
     
   }
+  const buttons = document.querySelectorAll('button');
 
-  function game() {
+  // we use the .forEach method to iterate through each button
+  
+  buttons.forEach((button) =>   
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        playerSelection = button.id;
+        computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection));
+    }));
+
+  // function game() {
     
-    let computerSelection = computerPlay();
-    let j = 0; // my wins
-    let k = 0; // computer wins
-      for (let i = 0; i < 5; i++) {
-        let playerSelection = window.prompt("Rock, Paper, or Scissor?");
-          if (playRound(playerSelection, computerSelection) == 1 || playRound(playerSelection, computerSelection) == 3 || playRound(playerSelection, computerSelection) == 6) {
-            j++;
-            alert("You win!");
-            alert("Score: " + j + " vs " + k);
-          } else if (playRound(playerSelection, computerSelection) == 2 || playRound(playerSelection, computerSelection) == 4 || playRound(playerSelection, computerSelection) == 5) {
-            k++;
-            alert("You lose!");
-            alert("Score: " + j + " vs " + k); 
-          } else if (playRound(playerSelection, computerSelection) == 7) {
-            alert("Its a tie!");
-            alert("Score: " + j + " vs " + k);
-          } else {
-            alert("Invalid selection");
-          }
-        }
-        if (j > k) {
-            alert("You won the game!")
-            alert("Score: " + j + " vs " + k);
-        } else if (j < k) {
-            alert("You lost the game!");
-            alert("Score: " + j + " vs " + k);
-        } else {
-            alert("You have tied! Wait...how is that possible?");
-        }
-    }
+ //   let computerSelection = computerPlay();
+  //  let j = 0; // my wins
+  //  let k = 0; // computer wins
+      
+    //    let playerSelection = window.prompt("Rock, Paper, or Scissor?");
+  //        if (playRound(playerSelection, computerSelection) == 1 || playRound(playerSelection, computerSelection) == 3 || playRound(playerSelection, computerSelection) == 6) {
+   //         j++;
+  //          alert("You win!");
+  //          alert("Score: " + j + " vs " + k);
+   //       } else if (playRound(playerSelection, computerSelection) == 2 || playRound(playerSelection, computerSelection) == 4 || playRound(playerSelection, computerSelection) == 5) {
+  //          k++;
+   //         alert("You lose!");
+  //          alert("Score: " + j + " vs " + k); 
+  //        } else if (playRound(playerSelection, computerSelection) == 7) {
+  //          alert("Its a tie!");
+  //          alert("Score: " + j + " vs " + k);
+  //        } else {
+  //          alert("Invalid selection");
+   //       }
+  //      
+   //     if (j > k) {
+   //         alert("You won the game!")
+   //         alert("Score: " + j + " vs " + k);
+   //     } else if (j < k) {
+   //         alert("You lost the game!");
+   //         alert("Score: " + j + " vs " + k);
+   //     } else {
+   //         alert("You have tied! Wait...how is that possible?");
+    //    }
+//  }
           // every win, increase win counter by one
           // every loss, increase computer win counter by one
           // every tie, do nothing
           // display the results of each round
           // determine winner at end, display the winner and score count
-console.log(game())    
+  
     
     
   
